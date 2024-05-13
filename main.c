@@ -103,15 +103,15 @@ void display(void)
             glVertex2f(0.53,0.1); //5
          glEnd();
 
-        glColor3ub(255, 0, 0);
-        glBegin(GL_POLYGON);
-            meiaLua(0, -0.609, 0.22, 30);
-        glEnd();
-
         glColor3ub(255, 255, 255);
         glBegin(GL_POLYGON);
-            meiaLua(0, -0.6, 0.2, 30);
+            meiaLua(0, 0.4, 0.22, 30);
         glEnd();
+
+        // glColor3ub(255, 255, 255);
+        // glBegin(GL_POLYGON);
+        //     meiaLua(0, -0.6, 0.2, 30);
+        // glEnd();
          
     }
     
@@ -384,7 +384,7 @@ void meiaLua(float centerX1, float centerY1, float radius1, int numSegments1)
         angle/2;
         float x = centerX1 + (radius1 * cos(angle));
         float y = centerY1 + (radius1 * sin(angle));
-        glVertex2f(x, y);
+        glVertex2f(-x, -y);
     }
     glEnd();
 }
