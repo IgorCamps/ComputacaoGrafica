@@ -7,7 +7,7 @@ int R = 255, G = 213, B = 175;
 int R2 = 0, G2 = 0, B2 = 0;
 int rs, gs, bs;
 
-int flag = 0, flagCabeca = 1, flagBoca = 2, flagOlhos = 6;
+int flag = 0, flagCabeca = 1, flagBoca = 6, flagOlhos = 6;
 float radBoca = 0.22;
 int metade = 1;
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 
     glutCreateWindow(argv[0]);
 
-    glClearColor(1.0, 0.0, 1.0, 0.0);
+    glClearColor(255, 255, 255, 0.0);
 
     glOrtho(-1, 1, -1, 1, -1, 1);
 
@@ -330,10 +330,17 @@ void display(void)
     // Flag para boca
     if (flagBoca == 1)
     {
-        glColor3ub(255, 255, 255);
+        glColor3ub(217, 75, 89);
         glBegin(GL_POLYGON);
             meiaLua(0, 0.4, radBoca, 30);
-        glEnd(); 
+        glEnd();
+        glColor3ub(0, 0, 0);
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.25,-0.41); // 1
+        glVertex2f(-0.25,-0.4);// 2
+        glVertex2f(0.25,-0.4);// 3
+        glVertex2f(0.25,-0.41); // 4
+        glEnd();
     }else if (flagBoca == 2){
         glColor3ub(0, 0, 0);
         glBegin(GL_POLYGON);
@@ -343,7 +350,111 @@ void display(void)
         glBegin(GL_POLYGON);
             oval(0, -0.7, 0.18, 30, 1);
         glEnd();    
+    }else if (flagBoca == 3)
+    {
+        glColor3ub(0, 0, 0);
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.1,-0.41); // 1
+        glVertex2f(-0.1,-0.4);// 2
+        glVertex2f(0.1,-0.4);// 3
+        glVertex2f(0.1,-0.41); // 4
+        glEnd();
+    }else if (flagBoca == 4)
+    {
+        glColor3ub(0, 0, 0);
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.1,-0.42); // 1
+        glVertex2f(-0.1,-0.43);// 2
+        glVertex2f(0.1,-0.43);// 3
+        glVertex2f(0.1,-0.42); // 4
+        glEnd();
+
+        glColor3ub(0, 0, 0);  
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.1,-0.35);  // 1
+        glVertex2f(-0.2,-0.4);   // 2
+        glVertex2f(0.2,-0.4);   // 3
+        glVertex2f(0.1, -0.35); // 4
+        glEnd();
     }
+    else if (flagBoca == 5)
+    {
+        // CIRCULOS
+        glColor3ub(0, 0, 0);
+        glBegin(GL_POLYGON);
+        circulo(-0.2, -0.4, 0.08, 50);
+        glEnd();
+        glColor3ub(0, 0, 0);
+        glBegin(GL_POLYGON);
+        circulo(0.2, -0.4, 0.08, 50);
+        glEnd();
+        glColor3ub(255, 255, 255);
+        glBegin(GL_POLYGON);
+        circulo(-0.2, -0.4, 0.06, 50);
+        glEnd();
+        glBegin(GL_POLYGON);
+        circulo(0.2, -0.4, 0.06, 50);
+        glEnd();
+
+        // RETANGULO
+        glColor3ub(0, 0, 0);  
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.2,-0.325);  // 1
+        glVertex2f(-0.2,-0.48);   // 2
+        glVertex2f(0.2,-0.48);   // 3
+        glVertex2f(0.2, -0.325); // 4
+        glEnd();
+        glColor3ub(255, 255, 255);  
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.2,-0.34);  // 1
+        glVertex2f(-0.2,-0.46);   // 2
+        glVertex2f(0.2,-0.46);   // 3
+        glVertex2f(0.2, -0.34); // 4
+        glEnd();
+
+        // DENTES
+        glColor3ub(0, 0, 0);  
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.15,-0.325);  // 1
+        glVertex2f(-0.15,-0.48);   // 2
+        glVertex2f(-0.1,-0.48);   // 3
+        glVertex2f(-0.1, -0.325); // 4
+        glEnd();
+
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.03,-0.325);  // 1
+        glVertex2f(-0.03,-0.48);   // 2
+        glVertex2f(0.03,-0.48);   // 3
+        glVertex2f(0.03, -0.325); // 4
+        glEnd();
+
+        glBegin(GL_POLYGON);
+        glVertex2f(0.15,-0.325);  // 1
+        glVertex2f(0.15,-0.48);   // 2
+        glVertex2f(0.1,-0.48);   // 3
+        glVertex2f(0.1, -0.325); // 4
+        glEnd();
+    }else{
+        glColor3ub(217, 75, 89);
+        glBegin(GL_POLYGON);
+            meiaLua(0, 0.4, radBoca, 30);
+        glEnd();
+        
+        glColor3ub(255, 255, 255);
+        glBegin(GL_POLYGON);
+        glVertex2f(-0.13,-0.4); // 1
+        glVertex2f(-0.09,-0.5);// 2
+        glVertex2f(-0.05,-0.4);// 3
+        glEnd();
+
+        glBegin(GL_POLYGON);
+        glVertex2f(0.13,-0.4); // 1
+        glVertex2f(0.09,-0.5);// 2
+        glVertex2f(0.05,-0.4);// 3
+        glEnd();
+    }
+    
+    
     
     glFlush();
 }
@@ -429,6 +540,22 @@ void keyboard(unsigned char key, int x, int y)
     break;
     case 'w':
         flagBoca = 2;
+        glutPostRedisplay();
+    break;
+    case 'e':
+        flagBoca = 3;
+        glutPostRedisplay();
+    break;
+    case 'r':
+        flagBoca = 4;
+        glutPostRedisplay();
+    break;
+    case 't':
+        flagBoca = 5;
+        glutPostRedisplay();
+    break;
+    case 'y':
+        flagBoca = 6;
         glutPostRedisplay();
     break;
     }
