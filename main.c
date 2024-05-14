@@ -335,10 +335,14 @@ void display(void)
             meiaLua(0, 0.4, radBoca, 30);
         glEnd(); 
     }else if (flagBoca == 2){
-        glColor3ub(255, 255, 255);
+        glColor3ub(0, 0, 0);
         glBegin(GL_POLYGON);
-            oval(0, -0.4, radBoca, 30, metade);
-        glEnd();     
+            oval(0, -0.7, 0.22, 30, 2);
+        glEnd();  
+        glColor3ub(R, G, B);
+        glBegin(GL_POLYGON);
+            oval(0, -0.7, 0.18, 30, 1);
+        glEnd();    
     }
     
     glFlush();
